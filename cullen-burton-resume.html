@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cullen Burton - Enterprise Architect & Tech Leader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .header-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .title {
+            font-size: 1.2em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            font-size: 0.95em;
+            opacity: 0.9;
+            flex-wrap: wrap;
+        }
+        .main-content {
+            padding: 40px;
+        }
+        .intro {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+            font-size: 0.95em;
+            line-height: 1.7;
+            color: #555;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .job {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            display: grid;
+            grid-template-columns: 1fr 180px;
+            gap: 20px;
+        }
+        .job:last-child {
+            margin-bottom: 0;
+        }
+        .job-main {
+            min-width: 0;
+        }
+        .job-skills-sidebar {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #764ba2;
+        }
+        .skills-sidebar-title {
+            font-size: 1em;
+            font-weight: 700;
+            color: #764ba2;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .skills-sidebar-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .skills-sidebar-list li {
+            padding: 1px 0;
+            font-size: 1em;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+            margin: 0;
+        }
+        .skills-sidebar-list li:last-child {
+            border-bottom: none;
+        }
+        .skills-sidebar-list li::before {
+            content: '▪';
+            color: #667eea;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 5px;
+        }
+        .job-header {
+            margin-bottom: 8px;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 15px;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+        .company {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0;
+        }
+        .job-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 0;
+        }
+        .location-dates {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        .role-scope {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            border-left: 3px solid #764ba2;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .role-scope strong {
+            color: #2c3e50;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .metric {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border-top: 4px solid #667eea;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            font-size: 0.75em;
+            color: #7f8c8d;
+            line-height: 1.4;
+        }
+        .responsibility-section {
+            margin-top: 20px;
+        }
+        .responsibility-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: #764ba2;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .responsibility-title::before {
+            content: '▸';
+            font-size: 1.2em;
+        }
+        ul {
+            margin-left: 20px;
+            font-size: 0.9em;
+        }
+        li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .education {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .degree {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 0.95em;
+        }
+        .school {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .contact-info a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .job {
+                grid-template-columns: 1fr;
+            }
+            .job-skills-sidebar {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <h1>Cullen Burton</h1>
+            <div class="title">Enterprise Architect & Technical Leader</div>
+            <div class="contact-info">
+                <span><a href="mailto:cullenburton@gmail.com">cullenburton@gmail.com</a></span>
+                <span>402-350-5767</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="intro">
+                Cultivating collaborative, high-functioning delivery teams is where I excel. I take a very personal approach to mentorship/leadership, focusing on each individual’s unique goals, values and strengths. 
+My objective is simple: deliver highly scalable solutions that set new benchmarks for quality and customer satisfaction. I maintain a continuous improvement mindset, actively driving change and progress across all business functions, from project management and development work to leadership models and organizational structure.
+
+            </div>
+
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+
+                <div class="job">
+                    <div class="job-main">
+                        <div class="job-header">
+                            <div class="company">Fiserv</div>
+                            <div class="job-title">Enterprise Architect Senior Advisor</div>
+                            <div class="location-dates">Omaha, NE • 2024 – Present</div>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <div class="metric-value">300+</div>
+                                <div class="metric-label">Engineers Impacted</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">35</div>
+                                <div class="metric-label">Product Lines</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">100%</div>
+                                <div class="metric-label">On-Time SaaS Launch</div>
+                            </div>
+                        </div>
+
+                        <div class="responsibility-section">
+                            <div class="responsibility-title">Strategic Architectural Leadership</div>
+                            <ul>
+                                <li>Orchestrated global technological transformation focusing on eliminating developer friction through abstracting much of the NFR complexities allowing teams to focus on the business problems</li>
+                                <li>Designed and deployed enterprise reference architectures and shared libraries that decoupled complex NFRs from business logic, directly increasing feature velocity</li>
+                                <li>Pioneered AI-based Intent-Driven testing framework and re-engineered CI/CD pipelines for high-frequency automated deployments</li>
+                                <li>Engineered observability ecosystem and monitoring framework adopted as enterprise standard</li>
+                                <li>Redesigned engineering talent evaluation frameworks to elevate global hiring standards</li>
+                            </ul>
+                        </div>
+
+                        <div class="responsibility-section">
+                            <div class="responsibility-title">SaaS Platform Recovery & On time delivery</div>
+                            <ul>
+                                <li>Spearheaded recovery of a Disputes Management SaaS product 12 months behind schedule</li>
+                                <li>Unified 6 global teams across 2 continents to achieve 100% on-time launch</li>
+                                <li>Setup best practices for testing, configuration management, and deployment processes</li>
+                                <li>Engineered Automated Database Schema Management solution adopted as official enterprise standard</li>
+                                <li>Led tiger team retrofitting the platform with multi-tenancy, encryption at rest, production monitoring, and data masking protocols</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job-skills-sidebar">
+                        <div class="skills-sidebar-title">Roles</div>
+                        <ul class="skills-sidebar-list">
+                            <li>Enterprise Architect</li>
+                            <li>Solution Architect</li>
+                            <li>Technical Lead</li>
+                            <li>Engineer</li>
+                        </ul>
+                        
+                        <div class="skills-sidebar-title" style="margin-top: 15px;">Skills</div>
+                        <ul class="skills-sidebar-list">
+                            <li>Domain Driven Design</li>
+                            <li>Liquibase/Flyway</li>
+                            <li>AI Testing Harness</li>
+                            <li>AI Adoption</li>
+                            <li>Multi-Tenancy</li>
+                            <li>MS SQL</li>
+                            <li>Git</li>
+                            <li>Jenkins</li>
+                            <li>Rundeck</li>
+                            <li>Dynatrace</li>
+                            <li>Java Spring Boot</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-main">
+                        <div class="job-header">
+                            <div class="company">Union Pacific Railroad</div>
+                            <div class="job-title">Systems Engineer, DevSecOps / Change Management</div>
+                            <div class="location-dates">Omaha, NE • 2020 – 2024</div>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <div class="metric-value">10</div>
+                                <div class="metric-label">Engineers Led</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">55K</div>
+                                <div class="metric-label">Annual Deploys</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">5x</div>
+                                <div class="metric-label">Deploy Frequency</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">50%</div>
+                                <div class="metric-label">Failure Rate Reduction</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">40K</div>
+                                <div class="metric-label">Vulnerabilities Resolved</div>
+                            </div>
+                        </div>
+
+                        <div class="responsibility-section">
+                            <div class="responsibility-title">Enterprise Change Management & CI/CD</div>
+                            <ul>
+                                <li>Designed and deployed enterprise change management and CI/CD processes modernizing delivery while maintaining SOX, quality, and security compliance</li>
+                                <li>Reduced time between code completion to the ability to deploy from days to minutes through cultural changes and drastically improved workflow</li>
+                                <li>Reduced change failure rate by 50%; managed 55k deploys annually across 32 deployable types</li>
+                                <li>Transitioned team from isolated development to collaborative product-focused Agile organization</li>
+                            </ul>
+                        </div>
+
+                        <div class="responsibility-section">
+                            <div class="responsibility-title">Security & Vulnerability Management</div>
+                            <ul>
+                                <li>Member of the Security Champions initiative developing comprehensive security protocols for the enterprise</li>
+                                <li>Established tooling for critical security event resolution and vulnerability tracking</li>
+                                <li>Prototyped and implemented enterprise wide renovate dependency management automation and deployment</li>
+                                <li>Built a data collection platform for capturing all security telementry from 10 difference sources unifying it into a datalake and Injested into the Cyber Risk Management System</li>
+                                <li>Drove organizational practices and improvements resulting in 40,000+ vulnerability being resolved in the first year</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job-skills-sidebar">
+                        <div class="skills-sidebar-title">Roles</div>
+                        <ul class="skills-sidebar-list">
+                            <li>Solution Architect</li>
+                            <li>Technical Lead</li>
+                            <li>Engineer</li>
+                        </ul>
+                        
+                        <div class="skills-sidebar-title" style="margin-top: 15px;">Skills</div>
+                        <ul class="skills-sidebar-list">
+                            <li>Architecture Design</li>
+                            <li>Data Modeling</li>
+                            <li>Oracle</li>
+                            <li>Custom LDAP Server</li>
+                            <li>XACML</li>
+                            <li>Jenkins</li>
+                            <li>CI/CD Automation</li>
+                            <li>Java</li>
+                            <li>Groovy</li>
+                            <li>Python</li>
+                            <li>Apache SOLR</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-main">
+                        <div class="job-header">
+                            <div class="company">Union Pacific Railroad</div>
+                            <div class="job-title">Associate Systems Engineer, DevSecOps / Change Management</div>
+                            <div class="location-dates">Omaha, NE • 2019</div>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <div class="metric-value">8mo → 2min</div>
+                                <div class="metric-label">Provisioning Speed</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">200K</div>
+                                <div class="metric-label">Provisioned Assets</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">25K+</div>
+                                <div class="metric-label">Microservices</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">10K+</div>
+                                <div class="metric-label">Event Processors</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">90%</div>
+                                <div class="metric-label">New Development Usage</div>
+                            </div>
+                        </div>
+
+                        <div class="responsibility-section">
+                            <div class="responsibility-title">Internal Custom Cloud-Based Provisioning System</div>
+                            <ul>
+                                <li>Led design and development of a custom internal cloud-based provisioning system</li>
+                                <li>Managed 55 different provision-able assets supporting 200k provisioned assets</li>
+                                <li>Reduced provisioning lead time from 8 months to 2 minutes for all golden path architectural patterns</li>
+                                <li>Unified authorization management with complete integration across all provisioned assets using a custom developed LDAP Host built around the XACML (
+eXtensible Access Control Markup Language) framework</li>
+                                <li>175k provisioned JVM's in Production</li>
+                                <li>90% mutation test coverage and 600 BDD (Behavior Driven Design) Test scenarios covered</li>
+                            </ul>
+                        </div>
+
+                        <div class="responsibility-section">
+                            <div class="responsibility-title">Java Center of Excellence</div>
+                            <ul>
+                                <li>Established. Java Center of Excellence for Java environment accelerating business value delivery</li>
+                                <li>Built enterprise reference solutions supporting 25,000+ microservices and 10,000+ event processors capturing (30% of deployed environment, 90% of new development)</li>
+                                <li>Implemented inner-source model enabling organization-wide contribution</li>
+                                <li>Developed engineering standards, documentation, and training courses for new hire training and ongoing development</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job-skills-sidebar">
+                        <div class="skills-sidebar-title">Roles</div>
+                        <ul class="skills-sidebar-list">
+                            <li>Solution Architect</li>
+                            <li>Technical Lead</li>
+                            <li>Scrum Master</li>
+                            <li>Business Analyst</li>
+                            <li>Project Management</li>
+                            <li>Engineer</li>
+                        </ul>
+                        
+                        <div class="skills-sidebar-title" style="margin-top: 15px;">Skills</div>
+                        <ul class="skills-sidebar-list">
+                            <li>Architecture Design</li>
+                            <li>Data Modeling</li>
+                            <li>Oracle</li>
+                            <li>LDAP</li>
+                            <li>XACML</li>
+                            <li>Tibco JMS</li>
+                            <li>Microservice Design</li>
+                            <li>Domain Driven Design</li>
+                            <li>Java</li>
+                            <li>Spring Boot</li>
+                            <li>TDD</li>
+                            <li>BDD</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-main">
+                        <div class="job-header">
+                            <div class="company">Union Pacific Railroad</div>
+                            <div class="job-title">Senior Project Engineer, Internal Systems Development Group</div>
+                            <div class="location-dates">Omaha, NE • 2016 – 2018</div>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <div class="metric-value">3</div>
+                                <div class="metric-label">Developers Led</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">5</div>
+                                <div class="metric-label">Systems Consolidated</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">20%</div>
+                                <div class="metric-label">MTTR Reduction</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">55</div>
+                                <div class="metric-label">Custom Tags Managed<br/>On 12 Clusters</div>
+                            </div>
+                        </div>
+
+                        <div class="responsibility-section">
+                            <div class="responsibility-title">Application & Server Management</div>
+                            <ul>
+                                <li>Consolidated 5 disparate systems into unified solution managing application portfolios, server inventory, business impact analysis, disaster recovery planning, and deployment profile specifications</li>
+                                <li>Facilitated quarterly disaster recovery exercises and recovery planning</li>
+                                <li>Reduced Mean Time To Recovery (MTTR) by 20% when system failures occur due to consolidation of systems knowledge</li>
+                                <li>Consolidated RBAC controls with custom LDAP integration for extensible access management</li>
+                                <li>Automated LDAP Group provisioning with cascading security inheritance</li>
+                            </ul>
+                            <div class="responsibility-title">Coldfusion Center of Excellence</div>
+                            <ul>
+                                <li>Created and Managed 55 Custom Tags for ColdFusion applications</li>
+                                <li>Followed TDD Principles for development and testing</li>
+                                <li>Managed deployment of these custom tags to 12 clusters across 144 servers</li>
+                                <li>Documented and provided training for the ~50 ColdFusion developers</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job-skills-sidebar">
+                        <div class="skills-sidebar-title">Roles</div>
+                        <ul class="skills-sidebar-list">
+                            <li>Solution Architect</li>
+                            <li>Technical Lead</li>
+                            <li>Scrum Master</li>
+                            <li>Business Analyst</li>
+                            <li>Project Management</li>
+                            <li>Engineer</li>
+                        </ul>
+                        
+                        <div class="skills-sidebar-title" style="margin-top: 15px;">Skills</div>
+                        <ul class="skills-sidebar-list">
+                            <li>Architecture Design</li>
+                            <li>Database Admin</li>
+                            <li>Data Modeling</li>
+                            <li>MS SQL</li>
+                            <li>Oracle</li>
+                            <li>Product Mindset</li>
+                            <li>jQuery</li>
+                            <li>ColdFusion</li>
+                            <li>Custom Tags</li>
+                            <li>Ldap</li>
+                            <li>RBAC</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education">
+                    <div class="degree">Bachelor of Science in Management of Information Systems</div>
+                    <div class="school">Bellevue University, Bellevue, Nebraska</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
